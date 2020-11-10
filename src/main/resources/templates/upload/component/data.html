@@ -1,0 +1,99 @@
+
+<div class="box box-primary">
+	<div class="box-header">
+		<h3 class="box-title">Date</h3>
+	</div>
+	<div class="box-body">
+		<!-- Date -->
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Inicio: Registro</label>
+
+				<div class="input-group date">
+					<div class="input-group-addon">
+						<i class="fa fa-calendar"></i>
+					</div>
+					<input name="datepicker" type="text"
+						class="form-control pull-right" id="datepicker"
+						data-date-format="" th:field="*{initRegistro}"></input>
+					<p th:if="${#fields.hasErrors('initRegistro')}"
+						th:errors="*{initRegistro}">date Error</p>
+				</div>
+				<!-- /.input group -->
+			</div>
+		</div>
+		<!-- /.form group -->
+		<!-- Date -->
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Final registro:</label>
+
+				<div class="input-group date">
+					<div class="input-group-addon">
+						<i class="fa fa-calendar"></i>
+					</div>
+					<input name="datepicker2" type="text"
+						class="form-control pull-right" id="datepicker2"
+						data-date-format="" th:field="*{finRegistro}"
+						required="true"
+						
+						></input>
+					<p th:if="${#fields.hasErrors('finRegistro')}"
+						th:errors="*{finRegistro}">date Error</p>
+				</div>
+				<!-- /.input group -->
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Hoja:</label>
+
+				<div class="input-group date">
+					<div class="input-group-addon">
+						<i class="fa fa-calendar"></i>
+					</div>
+					<input name="datepicker2" type="text"
+						class="form-control pull-right" id="datepicker2"
+						data-date-format="" th:field="*{numHoja}"
+						required="true"
+						
+						></input>
+					<p th:if="${#fields.hasErrors('numHoja')}"
+						th:errors="*{numHoja}">date Error</p>
+				</div>
+				<!-- /.input group -->
+			</div>
+		</div>
+
+		<div class="input-field col-md-12">
+											<div class="file-field input-field">
+												<div class="btn  blue">
+													<span>Adjuntar </span> <input type="file"
+														name="archivoImagen" multiple>
+												</div>
+												<div class="file-path-wrapper">
+													<input class="file-path validate" type="text"
+														name="archivoImagen"
+														placeholder="Subir uno o muchos archivos">
+												</div>
+											</div>
+										</div>
+
+		<div class="col-md-6">
+			<div class="form-group">
+				<div class="input-group date">
+					<button id="buscar" type="submit" class="btn btn-danger">
+						<i class="fa fa-search-plus"></i><br></br>BUSCAR
+					</button>
+				</div>
+				<!-- /.input group -->
+			</div>
+		</div>
+
+		<!-- /.form group -->
+
+	</div>
+	<!-- /.box-body -->
+
+</div>

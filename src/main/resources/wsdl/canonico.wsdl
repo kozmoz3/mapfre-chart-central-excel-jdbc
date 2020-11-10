@@ -1,0 +1,400 @@
+<wsdl:definitions
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:soapjms="http://www.w3.org/2010/soapjms/"
+	xmlns:tns="http://SMX074010-001.ltm.mapfre.net/mmxRam.CentralMedica.svc"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	name="migracionDatos3_WSD"
+	targetNamespace="http://SMX074010-001.ltm.mapfre.net/mmxRam.CentralMedica.svc">
+	<wsdl:types>
+		<xsd:schema
+			xmlns:tns="http://SMX074010-001.ltm.mapfre.net/mmxRam.CentralMedica.svc"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://SMX074010-001.ltm.mapfre.net/mmxRam.CentralMedica.svc">
+			<xsd:element name="migracionDatos"
+				type="tns:migracionDatos" />
+			<xsd:element name="migracionDatosResponse"
+				type="tns:migracionDatosResponse" />
+			<xsd:complexType name="migracionDatos">
+				<xsd:sequence>
+					<xsd:element name="taskID" nillable="true"
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="migracionDatosResponse">
+				<xsd:sequence>
+					<xsd:element name="servicioOut" nillable="true"
+						type="tns:servicioOut" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="servicioOut">
+				<xsd:sequence>
+					<xsd:element name="TaskInfo" nillable="true"
+						type="tns:TaskInfo" />
+					<xsd:element name="TaskData" nillable="true"
+						type="tns:TaskData" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="TaskInfo">
+				<xsd:sequence>
+					<xsd:element name="name" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="description" nillable="true"
+						type="xsd:anyType" />
+					<xsd:element name="expireDate" nillable="true"
+						type="xsd:anyType" />
+					<xsd:element name="createdDate" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="lastModifiedDate" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="customTaskID" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="createdBy" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="lastModifiedBy" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="lastAcceptedBy" nillable="true"
+						type="xsd:anyType" />
+					<xsd:element name="lastAcceptedDate" nillable="true"
+						type="xsd:anyType" />
+					<xsd:element name="status" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="priority" nillable="true"
+						type="xsd:string" />
+					<xsd:element maxOccurs="unbounded"
+						name="acceptedByList" nillable="true" type="xsd:string" />
+					<xsd:element maxOccurs="unbounded"
+						name="assignedToList" nillable="true" type="xsd:string" />
+					<xsd:element name="errorCode" nillable="true"
+						type="xsd:anyType" />
+					<xsd:element name="errorMessage" nillable="true"
+						type="xsd:anyType" />
+					<xsd:element name="taskUrl" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="taskTypeID" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="taskVersionNumber" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="processInstanceID" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="processModelID" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="processModelVersion" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="stepID" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="processIteration" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="stepIteration" nillable="true"
+						type="xsd:string" />
+					<xsd:element maxOccurs="unbounded"
+						name="delegatedToList" nillable="true" type="xsd:string" />
+					<xsd:element maxOccurs="unbounded"
+						name="delegatedFromList" nillable="true" type="xsd:string" />
+					<xsd:element name="auditContext" nillable="true"
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="TaskData">
+				<xsd:sequence>
+					<xsd:element name="DictamenMedico" nillable="true"
+						type="tns:DictamenMedico" />
+					<xsd:element name="DatosMinimos" nillable="true"
+						type="tns:DatosMinimos" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DictamenMedico">
+				<xsd:sequence>
+					<xsd:element name="deducibleC" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="plan" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="aseguradora" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="topeCoaseguroC" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="RMA" nillable="true" type="tns:RMA" />
+					<xsd:element name="Titular" nillable="true"
+						type="tns:Titular" />
+					<xsd:element name="suma_asegurada" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="endoso_especiales" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="exclusiones_riesgo" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="topeCoaseguroPD" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="siniestros_previos" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="coaseguroPD" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="tip_poliza" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="dictamen" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="coaseguroC" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="fec_reconocimiento_antiguedad"
+						nillable="true" type="xsd:dateTime" />
+					<xsd:element name="GCA" nillable="true" type="tns:GCA" />
+					<xsd:element name="deduciblePD" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="fec_amtiguedad" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="obs_externas" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="obs_internas" nillable="true"
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="RMA">
+				<xsd:sequence>
+					<xsd:element name="obs_ajustes" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="ayudante" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="anestesiologo" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="ajustes" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="hospital" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="honorarios_medicos" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="cirujano" nillable="true"
+						type="xsd:double" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="Titular">
+				<xsd:sequence>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="GCA">
+				<xsd:sequence>
+					<xsd:element name="coaseguro_honorarios_medicos_txt"
+						nillable="true" type="xsd:string" />
+					<xsd:element name="coaseguro_hospital" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="deducible" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="coaseguro_honorarios_medicos"
+						nillable="true" type="xsd:double" />
+					<xsd:element name="coaseguro_hospital_txt"
+						nillable="true" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="DatosMinimos">
+				<xsd:sequence>
+					<xsd:element name="fec_act_dic" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="usr_dictaminador" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="Contacto" nillable="true"
+						type="tns:Contacto" />
+					<xsd:element name="num_riesgo" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="habitacion" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="edad" nillable="true" type="xsd:int" />
+					<xsd:element name="Proveedor" nillable="true"
+						type="tns:Proveedor" />
+					<xsd:element name="obs" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="area_ingreso" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="fec_ingreso" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="fec_nacimiento" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="tip_pago" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="folio" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="sector_descripcion" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="fec_egreso" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="proceso" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="fec_ocurrido" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="fec_proc_sini" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="Contratante" nillable="true"
+						type="tns:Contratante" />
+					<xsd:element name="resultado_dictamen" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="num_sini" nillable="true"
+						type="xsd:long" />
+					<xsd:element name="monto" nillable="true"
+						type="xsd:double" />
+					<xsd:element name="Poliza" nillable="true"
+						type="tns:Poliza" />
+					<xsd:element name="hora_ingreso" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="tip_ingreso" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="cod_sector" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="Afectado" nillable="true"
+						type="tns:Afectado" />
+					<xsd:element name="motivo_segmentacion" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="tip_exp" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="num_poliza" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="fec_dic" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element maxOccurs="unbounded" name="Diagnosticos"
+						nillable="true" type="tns:Diagnosticos" />
+					<xsd:element name="num_exp" nillable="true"
+						type="xsd:int" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="Contacto">
+				<xsd:sequence>
+					<xsd:element name="tel" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="email" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="ape_pat" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="ext" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="ape_mat" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="fax" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="nombre" nillable="true"
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="Proveedor">
+				<xsd:sequence>
+					<xsd:element name="sucursal" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="rfc" nillable="true"
+						type="xsd:string" />
+					<xsd:element maxOccurs="unbounded" name="telefonos"
+						nillable="true" type="xsd:string" />
+					<xsd:element name="email" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="ape_pat" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="ape_mat" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="nombre" nillable="true"
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="Contratante">
+				<xsd:sequence>
+					<xsd:element name="ape_pat" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="ape_mat" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="nombre" nillable="true"
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="Poliza">
+				<xsd:sequence>
+					<xsd:element name="cod_nivel2" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="cod_nivel1" nillable="true"
+						type="xsd:int" />
+					<xsd:element name="status_poliza" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="vigencia_fin" nillable="true"
+						type="xsd:dateTime" />
+					<xsd:element name="status_pago" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="vigencia_ini" nillable="true"
+						type="xsd:dateTime" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="Afectado">
+				<xsd:sequence>
+					<xsd:element name="ape_pat" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="ape_mat" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="sexo" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="nombre" nillable="true"
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="Diagnosticos">
+				<xsd:sequence>
+					<xsd:element name="tratamiento" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="tip_medico" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="cpt4" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="nombre_medico" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="descr" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="cod_icd" nillable="true"
+						type="xsd:string" />
+					<xsd:element name="especialidad" nillable="true"
+						type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message
+		name="migracionDatos3_WSD_PortType_migracionDatos">
+		<wsdl:part name="parameters" element="tns:migracionDatos">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message
+		name="migracionDatos3_WSD_PortType_migracionDatosResponse">
+		<wsdl:part name="parameters"
+			element="tns:migracionDatosResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="migracionDatos3_WSD_PortType">
+		<wsdl:operation name="migracionDatos">
+			<wsdl:input
+				message="tns:migracionDatos3_WSD_PortType_migracionDatos">
+			</wsdl:input>
+			<wsdl:output
+				message="tns:migracionDatos3_WSD_PortType_migracionDatosResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding
+		name="mmxRam_CentralMedica_svc_migracionDatos3_WSD_Binder"
+		type="tns:migracionDatos3_WSD_PortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="migracionDatos">
+			<soap:operation
+				soapAction="mmxRam_CentralMedica_svc_migracionDatos3_WSD_Binder_migracionDatos"
+				style="document" />
+			<wsdl:input>
+				<soap:body parts="parameters" use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="parameters" use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service
+		name="mmxRam.CentralMedica.svc.migracionDatos3_WSD">
+		<wsdl:port
+			name="mmxRam_CentralMedica_svc_migracionDatos3_WSD_Port"
+			binding="tns:mmxRam_CentralMedica_svc_migracionDatos3_WSD_Binder">
+			<soap:address
+				location="http://SMX074010-001.ltm.mapfre.net:5555/ws/mmxRam.CentralMedica.svc.migracionDatos3_WSD/mmxRam_CentralMedica_svc_migracionDatos3_WSD_Port" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
